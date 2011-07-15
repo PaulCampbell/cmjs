@@ -1,4 +1,5 @@
 <head>
+	<link rel="stylesheet" href="iphone.css" type="text/css" />    
     <script src="javascripts/libraries/json2.js"></script> 
     <script src="javascripts/libraries/jquery-1.4.2.js"></script> 
 	<script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
@@ -9,13 +10,13 @@
 	
 		<div id="AllCourses">
 			<input type="text" /><input type="submit" />
-			<ul id="CourseList">
+			<ul id="CourseList" class='menu'>
 
 			</ul>
 		</div>
 
 	<script id="CourseListItemTmpl" type="text/x-jquery-tmpl">
-		<li>
+		<li class='arrow'>
 		<a href="#golfcourses/${Id}"> ${name}</a> ${area}
 		</li>
 	</script>	
@@ -27,14 +28,24 @@
 	
 </head>
 <body>
-<h1><a href="#">=-</a></h1>
+
+<div id="header">
+	<a href="#" id='back'>Back</a>
+	<h1>Home</h1>
+</div>
+<div id="wrapper">
+	<div id="scroller">
+	  <section id='home' title='Home' class='current'>
+	    <div>
 
 
 <div id="app">
 	
 </div>
 
-
+</div>
+</section>
+</div>
 	
 	
 		<script src="javascripts/Application.js"></script> 
