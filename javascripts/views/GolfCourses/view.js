@@ -15,6 +15,10 @@ App.Views.GolfCourses.View = Backbone.View.extend({
         } else {
             out = "<h3>No golf course found.</h3>";
         }
+		
+		$('#back').attr('href', '#')
+		$('#back').show();
+		
         $(this.el).html(out);
         $('#app').html(this.el);
     }

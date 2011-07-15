@@ -9,7 +9,8 @@
 	<!-- index templates -->
 	
 		<div id="AllCourses">
-			<input type="text" /><input type="submit" />
+			<input type="text" id="txtSearch" />
+			<input id="btnSearch" type="button" value="Search" />
 			<ul id="CourseList" class='menu'>
 
 			</ul>
@@ -23,8 +24,7 @@
 	
 	
 	<!-- view course templates -->
-	
-	
+
 	
 </head>
 <body>
@@ -36,17 +36,30 @@
 <div id="wrapper">
 	<div id="scroller">
 	  <section id='home' title='Home' class='current'>
-	    <div>
 
+		<div id="app">
+			
+		</div>
 
-<div id="app">
-	
+	  </section>
+	</div>
 </div>
-
+	<div id="footer">
+  <ul>
+    <li>
+      <a href="#home" id='home-tb' class='panel active'>
+        <div class='icon'></div>
+        <div class='title'>Home</div>
+      </a>
+    </li>
+    <li>
+      <a href="#tools" id='tools-tb' class='panel'>
+        <div class='icon'></div>
+        <div class='title'>Tools</div>
+      </a>
+    </li>
+  </ul>
 </div>
-</section>
-</div>
-	
 	
 		<script src="javascripts/Application.js"></script> 
 	<script src="javascripts/models/golfcourse.js"></script> 
