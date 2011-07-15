@@ -1,5 +1,12 @@
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
 	<link rel="stylesheet" href="iphone.css" type="text/css" />    
+	<script src="javascripts/libraries/iphone.js"></script> 
+	<script src="javascripts/libraries/iscroll.js"></script> 
     <script src="javascripts/libraries/json2.js"></script> 
     <script src="javascripts/libraries/jquery-1.4.2.js"></script> 
 	<script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
@@ -17,14 +24,28 @@
 		</div>
 
 	<script id="CourseListItemTmpl" type="text/x-jquery-tmpl">
-		<li class='arrow'>
-		<a href="#golfcourses/${Id}"> ${name}</a> ${area}
+		<li>
+		<div><a href="#golfcourses/${Id}"> ${name}</a> </div>
+		<div>${area}</div>
 		</li>
 	</script>	
 	
 	
 	<!-- view course templates -->
-
+	<div id="ViewCourse">
+		<h1>${name}</h1>
+		<p>${description}</p>
+		<ul id="HoleList" class='menu'>
+		
+		</ul>
+	</div>
+	
+	<script id="HoleListItemTmpl" type="text/x-jquery-tmpl">
+		<li>
+		<a href="#hole/${Id}"> ${name}</a> 
+		${area}
+		</li>
+	</script>	
 	
 </head>
 <body>
@@ -73,5 +94,9 @@
 		 $(function() {
 			App.init();
 		});
+
+	  var myScroll;
+	  document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+	  myScroll = new iScroll('wrapper');
 	</script>
 </body>
