@@ -34,12 +34,11 @@
 	<!-- view course templates -->
 	<script id="ViewCourse" type="text/x-jquery-tmpl">
 	<div id="ViewCourse">
-		<h1>${name}</h1>
 		<p>${description}</p>
 		<ul id="HoleList" class='menu'>
 		{{each holes}}
 		<li>
-		<a href="#hole/${Id}"> ${name}</a> 
+		<a href="#hole/${Id}">Hole ${holeNumber}</a> 
 		Par: ${par} S.I. ${strokeIndex}
 		</li>
 		{{/each}}
