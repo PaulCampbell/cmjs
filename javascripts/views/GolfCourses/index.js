@@ -11,7 +11,7 @@ App.Views.GolfCourses.Index = Backbone.View.extend({
      
     render: function() {
 		$('#back').hide();
-	
+		$('#header h1').html("Caddy Magic");
         if(this.golfCourses.length > 0) {
 		 var template = $("#CourseListItemTmpl");
 		 var html = template.tmpl(this.golfCourses.toJSON());
