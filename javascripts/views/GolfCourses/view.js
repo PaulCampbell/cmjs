@@ -8,10 +8,15 @@ App.Views.GolfCourses.View = Backbone.View.extend({
         this.render();
     },
     
+    el: $('#ViewCourse'),
+    
    render: function() {
         if(this.golfCourse) {
-            var out = "<h3>" + this.golfCourse.escape('name') + "</h3>";
-           out += "<p>" + this.golfCourse.escape('description') + "</p>" 
+    		var template = $("#HoleListItemTmpl");
+		 	var html = $('#ViewCourse').tmpl(this.golfCourse.toJSON());
+		 	// $('#HoleList').html(html);
+		 	// var fullHtml = $('#ViewCourse').templ(this.golfCourse.toJSON());
+			 $('#app').html(html);
         } else {
             out = "<h3>No golf course found.</h3>";
         }
