@@ -25,27 +25,43 @@
 
 	<script id="CourseListItemTmpl" type="text/x-jquery-tmpl">
 		<li>
-		<div><a href="#golfcourses/${Id}"> ${name}</a> </div>
-		<div>${area}</div>
+			<div><a href="#golfcourses/${Id}"> ${name}</a> </div>
+			<div>${area}</div>
 		</li>
 	</script>	
 	
 	
 	<!-- view course templates -->
 	<script id="ViewCourse" type="text/x-jquery-tmpl">
-	<div id="ViewCourse">
+	<div>
 		<p>${description}</p>
 		<ul id="HoleList" class='menu'>
 		{{each holes}}
 		<li>
-		<a href="#hole/${Id}">Hole ${holeNumber}</a> 
+		<a href="#hole/1">Hole ${holeNumber}</a> 
 		Par: ${par} S.I. ${strokeIndex}
 		</li>
-		{{/each}}
+		{{/each}}	
 		</ul>
 	</div>
 	</script>
 	
+	
+	
+	<!-- view hole templates -->
+	<script id="ViewHole" type="text/x-jquery-tmpl">
+	<div>
+		Hole ${holeNumber}
+		<ul id="HoleList" class='menu'>
+			{{each features}}
+			<li>
+				<a href="#map/1">ftype ${featuretypeID} </a> 
+				Distance: Height: 
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+	</script>
 	
 </head>
 <body>
@@ -88,7 +104,7 @@
     <script src="javascripts/controllers/golfcourses.js"></script> 
 	<script src="javascripts/views/GolfCourses/index.js"></script> 
 	<script src="javascripts/views/GolfCourses/view.js"></script> 
-	
+	<script src="javascripts/views/GolfCourses/view_hole.js"></script> 
 	
 	<script>
 		 $(function() {

@@ -16,6 +16,19 @@ App.Controllers.GolfCourses = Backbone.Controller.extend({
             }
         });
     },
+	
+	view_hole: function(id) {
+		var hole = new Hole({Id: id});
+		hole.fetch({
+			success: function(model, resp) {
+                new App.Views.GolfCourses.ViewHole({ model: hole });
+            },
+            error: function() {
+                new Error({ message: 'Could not find that hole.' });
+                window.location.hash = '#';
+            }
+        });
+	},
     
     index: function() {
          var golfcourses = new App.Collections.GolfCourses();
