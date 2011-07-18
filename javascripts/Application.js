@@ -3,10 +3,10 @@
 			Views: {
 				GolfCourses: {}
 				},
-			Controllers: {},
+			Router: {},
 			Collections: {},
 			init: function() {
-				new App.Controllers.GolfCourses();
+				new App.Router.GolfCourses();
 				Backbone.history.start();
 			}
 		};
