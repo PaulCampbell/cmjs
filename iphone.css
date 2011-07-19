@@ -46,6 +46,7 @@ width: 150px;
 
 #wrapper ul {
 background: white;
+opacity:0.8;
 border: 1px solid #B4B4B4;
 border-bottom-left-radius: 8px 8px;
 border-bottom-right-radius: 8px 8px;
@@ -80,6 +81,7 @@ border-bottom-right-radius: 8px 8px;
 background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAUCAYAAAB4d5a9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAKVJREFUeNpi/P//PwOtARMDHcDwsYQFRJSXl8P4dVC6CZvizs5O8i1BsqARid9Ei+BiQ2KDLKumhSU1QNyKxG+hlkXoEQ+yqAPNogpapK5KNIvaKbUIVxKeAsTvkPg5QCxETUukgfgAkqFPgdgBzVKKLIFZoIJmwR1qBRdNLEC2BJQpV9LCAmRL/gBxAtRwqlqAXqzcgRrOQE0LQIBxtNIiBQAEGAA7xCa2yF9zEgAAAABJRU5ErkJggg==);
 background-position: 100% 50%;
 background-repeat: no-repeat;
+
 }
 
 body > .current {
@@ -187,8 +189,9 @@ top: 45px;
 bottom: 48px;
 left: 0;
 width: 100%;
+background-size: 100% auto;
 overflow: auto;
-background: #C5CCD3 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAABCAIAAACdaSOZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABdJREFUeNpiPHrmCgMC/GNjYwNSAAEGADdNA3dnzPlQAAAAAElFTkSuQmCC);
+background: #C5CCD3 url(images/grasstexture.jpg)
 }
 
 #wrapper.noheader {
