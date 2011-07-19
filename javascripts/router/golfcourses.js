@@ -1,7 +1,8 @@
 App.Router.GolfCourses = Backbone.Router.extend({
     routes: {
-        "golfcourses/:id":            "view",
-        "":                         "index"
+        "golfcourses/:id":            		"view",
+        "":                         		"index",
+		"golfcourses/:id/hole/:holeNo":		"view_hole"
     },
     
     view: function(id) {
@@ -17,17 +18,22 @@ App.Router.GolfCourses = Backbone.Router.extend({
         });
     },
 	
-	view_hole: function(id) {
-		var hole = new Hole({Id: id});
-		hole.fetch({
-			success: function(model, resp) {
-                new App.Views.GolfCourses.ViewHole({ model: hole });
+	view_hole: function(id, holeNo) {
+		var golfcourse = new GolfCourse({ Id: id });
+        golfcourse.fetch({
+            success: function(model, resp) {
+				var hole = new Hole({golfCourseName: model.get('name'),
+									holeDetail: _.select(model.get('holes'), (function(c) { c.holeNumber == holeNo}))});
+			
+                new App.Views.GolfCourses.View({ model: golfcourse });
             },
             error: function() {
-                new Error({ message: 'Could not find that hole.' });
+                new Error({ message: 'Could not find that golf course.' });
                 window.location.hash = '#';
             }
-        });
+	
+		
+		})
 	},
     
     index: function() {
