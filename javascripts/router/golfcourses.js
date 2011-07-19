@@ -5,7 +5,7 @@ App.Router.GolfCourses = Backbone.Router.extend({
     },
     
     view: function(id) {
-        var golfcourse = new GolfCourse({ Id: id.toString() });
+        var golfcourse = new GolfCourse({ Id: id });
         golfcourse.fetch({
             success: function(model, resp) {
                 new App.Views.GolfCourses.View({ model: golfcourse });

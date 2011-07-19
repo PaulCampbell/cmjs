@@ -4,6 +4,6 @@ var GolfCourse = Backbone.Model.extend({
 	},
     url : function() {
       var base = 'http://www.caddymagic.com/GolfCourse.aspx/download?courseId=';
-      return base + this.Id;
+      return base + this.get('Id');
     }
 });
