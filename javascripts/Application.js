@@ -1,7 +1,8 @@
   
 		var App = {
 			Views: {
-				GolfCourses: {}
+				GolfCourses: {},
+				Holes: {}
 				},
 			Router: {},
 			Collections: {},

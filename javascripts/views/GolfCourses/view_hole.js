@@ -1,6 +1,6 @@
 
 
-App.Views.GolfCourses.ViewHole = Backbone.View.extend({
+App.Views.Holes.View = Backbone.View.extend({
   
     initialize: function() {
 		 _.bindAll(this, 'render');

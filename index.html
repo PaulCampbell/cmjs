@@ -38,7 +38,7 @@
 		<ul id="HoleList" class='menu'>
 		{{each holes}}
 		<li>
-		<a href="#hole/1">Hole ${holeNumber}</a> 
+		<a href="#golfcourses/${Id}/hole/${holeNumber}">Hole ${holeNumber}</a> 
 		Par: ${par} S.I. ${strokeIndex}
 		</li>
 		{{/each}}	
@@ -52,8 +52,8 @@
 	<script id="ViewHole" type="text/x-jquery-tmpl">
 	<div>
 		Hole ${holeNumber}
-		<ul id="HoleList" class='menu'>
-			{{each features}}
+		<ul id="FeatureList" class='menu'>
+			{{each holeDetail[0].features}}
 			<li>
 				<a href="#map/1">ftype ${featuretypeID} </a> 
 				Distance: Height: 

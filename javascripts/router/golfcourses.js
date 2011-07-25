@@ -25,7 +25,7 @@ App.Router.GolfCourses = Backbone.Router.extend({
 				var hole = new Hole({golfCourseName: model.get('name'),
 									holeDetail: _.select(model.get('holes'), (function(c) {return  c.holeNumber.toString() == holeNo}))});
 			
-                new App.Views.GolfCourses.View({ model: golfcourse });
+                new App.Views.Holes.View({ model: hole });
             },
             error: function() {
                 new Error({ message: 'Could not find that golf course.' });
