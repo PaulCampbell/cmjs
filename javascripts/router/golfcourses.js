@@ -23,7 +23,7 @@ App.Router.GolfCourses = Backbone.Router.extend({
         golfcourse.fetch({
             success: function(model, resp) {
 				var hole = new Hole({golfCourseName: model.get('name'),
-									holeDetail: _.select(model.get('holes'), (function(c) { c.holeNumber == holeNo}))});
+									holeDetail: _.select(model.get('holes'), (function(c) {return  c.holeNumber.toString() == holeNo}))});
 			
                 new App.Views.GolfCourses.View({ model: golfcourse });
             },
