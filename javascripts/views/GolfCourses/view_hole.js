@@ -14,9 +14,15 @@ App.Views.Holes.View = Backbone.View.extend({
         if(this.hole) {
 		 	var html = $('#ViewHole').tmpl(this.hole.toJSON());
 			 $('#app').html(html);
-			  GetLocation();
 			 
-			  function GetLocation() {
+			 // update the location every 5 seconds...
+			 UpdateLocation();  
+			 setInterval(function() {
+				 UpdateLocation();  
+			}, 5000);
+			 
+			 
+			  function UpdateLocation() {
                     var win = function(position) {                          // Grab coordinates object from the Position object passed into success callback.
                          var coords = position.coords;
                          alert( coords.latitude + "," + coords.longitude )
