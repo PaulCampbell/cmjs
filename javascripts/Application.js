@@ -11,4 +11,6 @@
 				Backbone.history.start();
 			}
 		};
+		
+		var CM = {};
 	
