@@ -23,7 +23,12 @@ App.Router.GolfCourses = Backbone.Router.extend({
         golfcourse.fetch({
             success: function(model, resp) {
 				var hole = new Hole({golfCourseName: model.get('name'),
-									holeDetail: _.select(model.get('holes'), (function(c) {return  c.holeNumber.toString() == holeNo}))});
+									holeDetail: _.select(model.get('holes'), (function(c) {return  c.holeNumber.toString() == holeNo}))
+									});
+				// set the distance of each hole feature
+				_.each(hole.get('holeDetail')[0].features, function(f){ 
+					f.distance = "--";
+				});
 			
                 new App.Views.Holes.View({ model: hole });
             },
