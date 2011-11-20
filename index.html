@@ -52,10 +52,10 @@
 	<div>
 		Hole ${holeNumber}
 		<ul id="FeatureList" class='menu'>
-			{{each holeDetail[0].features}}
+			{{each features.models}}
 			<li>
-				<a href="#map/1">ftype ${featuretypeID} </a> 
-				Distance: ${distance} Height: 
+				<a href="#map/${attributes.holeNumber}">${attributes.featureType}</a> 
+				Distance: ${attributes.distance} Height: 
 			</li>
 			{{/each}}
 		</ul>
@@ -101,7 +101,9 @@
 	<script src="javascripts/cm.core.js"></script> 	
 	<script src="javascripts/models/golfcourse.js"></script> 
 	<script src="javascripts/models/hole.js"></script> 
+	<script src="javascripts/models/feature.js"></script> 
     <script src="javascripts/collections/golfcourses.js"></script> 
+    <script src="javascripts/collections/Features.js"></script> 
     <script src="javascripts/router/golfcourses.js"></script> 
 	<script src="javascripts/views/GolfCourses/index.js"></script> 
 	<script src="javascripts/views/GolfCourses/view.js"></script> 

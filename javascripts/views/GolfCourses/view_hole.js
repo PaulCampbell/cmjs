@@ -39,8 +39,8 @@ App.Views.Holes.View = Backbone.View.extend({
 		var win = function(position) {          
 			var coords = position.coords;
 			// update the distances on each feature...
-			_.each(that.hole.get('holeDetail')[0].features, function(f){ 
-				f.distance = CM.core.GetDistance(coords.latitude, coords.longitude, f.latitude, f.longitude);
+			_.each(that.hole.get('features').models, function(f){ 
+				f.set({distance : CM.core.GetDistance(coords.latitude, coords.longitude, f.get('latitude'), f.get('longitude'))});
 			});
 			that.render();
 		};
