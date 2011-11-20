@@ -1,6 +1,9 @@
 
 App.Views.GolfCourses.Index = Backbone.View.extend({
     initialize: function() {
+        if(CM.core.RefreshIntervalId){
+        clearInterval(CM.core.RefreshIntervalId);
+        }
 		 _.bindAll(this, 'render');
         this.golfCourses = this.collection;
 		
@@ -18,6 +21,7 @@ App.Views.GolfCourses.Index = Backbone.View.extend({
 		 var html = template.tmpl(this.golfCourses.toJSON());
 		 $('#CourseList').html(html);
 		 $('#app').html(this.el);
+         CM.core.MyScroll.refresh() 
         } else {
          $('#app').html("<h3>No golf courses found</h3>");
         }

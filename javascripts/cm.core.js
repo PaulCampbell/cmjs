@@ -8,10 +8,22 @@ CM.core = function () {
 					Math.cos(CM.core.GetRadians(lat1)) * Math.cos(CM.core.GetRadians(lat2)) * 
 					Math.sin(dLon/2) * Math.sin(dLon/2); 
 			var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-			return R * c; // Distance in km}
+			return  CM.core.RoundDown(((R * c)*100),2);
 		},
 		GetRadians: function(i) {
-			return i * Math.PI / 180;
+			return (i * Math.PI / 180);
+		},
+		RefreshIntervalId: function(){
+			
+		},
+
+		RoundDown: function(num, dec) {
+			var result = Math.round(num*Math.pow(10,dec))/Math.pow(10,dec);
+			return result;
+		},
+
+		MyScroll: function(){
+			
 		}
 	};
 

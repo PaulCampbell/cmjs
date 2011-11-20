@@ -186,7 +186,7 @@ text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
 position: absolute;
 z-index: 1;
 top: 45px;
-bottom: 48px;
+bottom: 0px;
 left: 0;
 width: 100%;
 background-size: 100% auto;
@@ -331,3 +331,6 @@ background-position: 0px -26px;
 background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAsCAMAAACT+SJTAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADlQTFRFSUlJRkZGPDw8QEBAPT09LS0tOjo6REREUVFRNDQ0QUFBODg4Q0NDJiYmR0dHOzs7Pz8/Nzc3JSUlA6HuBwAAADBJREFUeNqMwocNACAMwLCwZ1n/H0vFBcgmA0MZEl1VHEt5LFNFGvspCOeLEK4AAwBZdwJYF8bZzwAAAABJRU5ErkJggg==) top left repeat-x;
 border-radius: 8px;
 }
+
+ul li a .info { font-size:80%; float:right; font-weight:normal; line-height: 20px;}
+.info .large { font-size:180%; font-weight:bold;}

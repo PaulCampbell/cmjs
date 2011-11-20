@@ -3,6 +3,9 @@
 App.Views.Holes.View = Backbone.View.extend({
   
     initialize: function() {
+    	if(CM.core.RefreshIntervalId){
+    	clearInterval(CM.core.RefreshIntervalId);
+    	}
 		 _.bindAll(this, 'render');
 	    this.hole = this.model;
 		this.hole.bind('change', _.bind(this.render, this));
@@ -10,7 +13,7 @@ App.Views.Holes.View = Backbone.View.extend({
 		 // update the location every 5 seconds...
 		this.updateLocation(); 
 		var that = this;
-		setInterval(function() {
+	    CM.core.RefreshIntervalId = setInterval(function() {
 			that.updateLocation();  
 		}, 5000);
 		
@@ -22,7 +25,9 @@ App.Views.Holes.View = Backbone.View.extend({
         if(this.hole) {
 		 	var html = $('#ViewHole').tmpl(this.hole.toJSON());
 			$('#app').html(html);
-			$('#back').attr('href', '#golfcourses/' + this.hole.get('golfCourseId'));			 
+			$('#header h1').html(this.hole.get("golfCourseName") + " - Hole" + this.hole.get('holeNumber'));
+			$('#back').attr('href', '#golfcourses/' + this.hole.get('golfCourseId'));	
+			CM.core.MyScroll.refresh() 		 
         } else {
             out = "<h3>No hole found.</h3>";
     		$(this.el).html(out);
