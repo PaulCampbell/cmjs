@@ -10,6 +10,7 @@ App.Views.GolfCourses.Index = Backbone.View.extend({
 	el: $('#AllCourses'),
      
     render: function() {
+       
 		$('#back').hide();
 		$('#header h1').html("Caddy Magic");
         if(this.golfCourses.length > 0) {

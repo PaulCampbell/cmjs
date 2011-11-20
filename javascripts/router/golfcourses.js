@@ -1,8 +1,8 @@
 App.Router.GolfCourses = Backbone.Router.extend({
     routes: {
-        "golfcourses/:id":            		"view",
-        "":                         		"index",
-		"golfcourses/:id/hole/:holeNo":		"view_hole"
+        "golfcourses/:id":                  "view",
+        "":                                 "index",
+        "golfcourses/:id/hole/:holeNo":     "view_hole"
     },
     
     view: function(id) {
@@ -17,29 +17,30 @@ App.Router.GolfCourses = Backbone.Router.extend({
             }
         });
     },
-	
-	view_hole: function(id, holeNo) {
-		var golfcourse = new GolfCourse({ Id: id });
+    
+    view_hole: function(id, holeNo) {
+        var golfcourse = new GolfCourse({ Id: id });
         golfcourse.fetch({
             success: function(model, resp) {
-				var hole = new Hole({golfCourseName: model.get('name'),
-									holeDetail: _.select(model.get('holes'), (function(c) {return  c.holeNumber.toString() == holeNo}))
-									});
-				// set the distance of each hole feature
-				_.each(hole.get('holeDetail')[0].features, function(f){ 
-					f.distance = "--";
-				});
-			
+                var hole = new Hole({golfCourseName: model.get('name'),
+                                    golfCourseId: model.get('Id'),
+                                    holeDetail: _.select(model.get('holes'), (function(c) {return  c.holeNumber.toString() == holeNo}))
+                                    });
+                // set the distance of each hole feature
+                _.each(hole.get('holeDetail')[0].features, function(f){ 
+                    f.distance = "--";
+                });
+            
                 new App.Views.Holes.View({ model: hole });
             },
             error: function() {
                 new Error({ message: 'Could not find that golf course.' });
                 window.location.hash = '#';
             }
-	
-		
-		})
-	},
+    
+        
+        })
+    },
     
     index: function() {
          var golfcourses = new App.Collections.GolfCourses();
