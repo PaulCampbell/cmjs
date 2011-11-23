@@ -182,7 +182,7 @@ text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
 }
 
 
-#wrapper {
+.fill-screen {
 position: absolute;
 z-index: 1;
 top: 45px;
@@ -334,3 +334,15 @@ border-radius: 8px;
 
 ul li a .info { font-size:80%; float:right; font-weight:normal; line-height: 20px;}
 .info .large { font-size:180%; font-weight:bold;}
+
+#SearchBox { font-size:large; padding:10px 0; }
+#SearchBox input { font-size:110%; padding:10px; }
+
+#map_canvas {
+position: absolute;
+z-index: 1;
+top: 0px;
+bottom: 0px;
+left: 0;
+width: 100%;
+}

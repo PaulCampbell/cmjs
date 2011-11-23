@@ -11,13 +11,18 @@
     <script src="javascripts/libraries/json2.js"></script>   
 	<script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
     <script src="javascripts/libraries/underscore-1.1.3.js"></script> 
-    <script src="javascripts/libraries/backbone.js"></script> 
+    <script src="javascripts/libraries/backbone.js"></script>
+    <script type="text/javascript"
+    src="http://maps.googleapis.com/maps/api/js?key=ABQIAAAAy-C1MNFj8AJ4vQ3SPmSk9BSZNf-81tXbKKaC6gXBXxgR7caoEBQVOozVeSjwt8JbwfdHgrsm_E1ZiQ&sensor=true">
+</script>
 
 	<!-- index templates -->
-	
+	  
 		<div id="AllCourses">
-			<!--<input type="text" id="txtSearch" />
-			<input id="btnSearch" type="button" value="Search" />-->
+			<div id="SearchBox">
+			<input type="text" id="txtSearch" />
+			<input id="btnSearch" type="button" value="Search" />
+			</div>
 			<ul id="CourseList" class='menu'>
 
 			</ul>
@@ -33,8 +38,8 @@
 			</div>
 			
 		</li>
-	</script>	
-	
+	</script>
+
 	
 	<!-- view course templates -->
 	<script id="ViewCourse" type="text/x-jquery-tmpl">
@@ -59,16 +64,15 @@
 	
 	<!-- view hole templates -->
 	<script id="ViewHole" type="text/x-jquery-tmpl">
-
 		<ul id="FeatureList" class='menu'>
-
-			{{each features.models}}
+            
+			{{each(i,feature) features.models}}
 			<li>
-				<a href="#golfcourses/{attributes.golfCourseId}/map">
-					${attributes.featureType}
+				<a href="#golfcourses/${golfCourseId}/map">
+					${feature.attributes.featureType}
 					<div class="info">
 					<div>Distance:</div>
-					<div class="large">${attributes.distance} m</div>
+					<div class="large">${feature.attributes.distance} m</div>
 					</div>
 				
 				</a> 
@@ -86,13 +90,15 @@
 	<a href="#" id='back'>Back</a>
 	<h1>Caddy Magic</h1>
 </div>
-<div id="wrapper">
+
+<div id="map" class="fill-screen"> </div>
+<div id="wrapper" class="fill-screen">
 
 
 	<div id="scroller">
 	  <section id='home' title='Home' class='current'>
+
 		<div id="app" class="scroller">
-			
 		</div>
 
 		  </section>
@@ -127,18 +133,16 @@
 	<script src="javascripts/views/index.js"></script> 
 	<script src="javascripts/views/view.js"></script> 
 	<script src="javascripts/views/view_hole.js"></script> 
-	
+	<script src="javascripts/views/map.js"></script>
+
 	<script>
 		 $(function() {
 			App.init();
 		});
 		
-		function loaded() {
-			CM.core.MyScroll = new iScroll('wrapper');
-		}
+	
+		
 
-		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-		document.addEventListener('DOMContentLoaded', setTimeout(function () { loaded(); }, 200), false);
 
 	</script>
 </body>

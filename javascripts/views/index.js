@@ -1,6 +1,7 @@
 
 App.Views.GolfCourses.Index = Backbone.View.extend({
     initialize: function() {
+        CM.core.StartScroll();
         if(CM.core.RefreshIntervalId){
         clearInterval(CM.core.RefreshIntervalId);
         }
@@ -13,7 +14,9 @@ App.Views.GolfCourses.Index = Backbone.View.extend({
 	el: $('#AllCourses'),
      
     render: function() {
-       
+        $('#wrapper').show();
+        $('#map').hide();
+
 		$('#back').hide();
 		$('#header h1').html("Caddy Magic");
         if(this.golfCourses.length > 0) {
@@ -21,7 +24,8 @@ App.Views.GolfCourses.Index = Backbone.View.extend({
 		 var html = template.tmpl(this.golfCourses.toJSON());
 		 $('#CourseList').html(html);
 		 $('#app').html(this.el);
-         CM.core.MyScroll.refresh() 
+         CM.core.MyScroll.refresh() ;
+         CM.core.MyScroll.scrollTo(0, 0, 20);
         } else {
          $('#app').html("<h3>No golf courses found</h3>");
         }

@@ -22,9 +22,21 @@ CM.core = function () {
 			return result;
 		},
 
-		MyScroll: function(){
-			
-		}
+        StartScroll: function(){
+            if(!CM.core.MyScroll.destroy())
+            {
+                document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+                document.addEventListener('DOMContentLoaded', setTimeout(function () { loaded(); }, 200), false);
+                CM.core.MyScroll = new iScroll('wrapper');
+            }
+        },
+
+        KillScroll: function(){
+           if(CM.core.MyScroll)
+           {
+               CM.core.MyScroll.destroy();
+           }
+        }
 	};
 
 }();

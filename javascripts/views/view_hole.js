@@ -3,6 +3,7 @@
 App.Views.Holes.View = Backbone.View.extend({
   
     initialize: function() {
+        CM.core.StartScroll();
     	if(CM.core.RefreshIntervalId){
     	clearInterval(CM.core.RefreshIntervalId);
     	}
@@ -22,12 +23,16 @@ App.Views.Holes.View = Backbone.View.extend({
     el: $('#ViewHole'),
     
    render: function() {
+        $('#wrapper').show();
+        $('#map').hide();
+
         if(this.hole) {
 		 	var html = $('#ViewHole').tmpl(this.hole.toJSON());
 			$('#app').html(html);
 			$('#header h1').html(this.hole.get("golfCourseName") + " - Hole" + this.hole.get('holeNumber'));
 			$('#back').attr('href', '#golfcourses/' + this.hole.get('golfCourseId'));	
-			CM.core.MyScroll.refresh() 		 
+			CM.core.MyScroll.refresh() 	
+			CM.core.MyScroll.scrollTo(0, 0, 20);	 
         } else {
             out = "<h3>No hole found.</h3>";
     		$(this.el).html(out);
@@ -52,7 +57,7 @@ App.Views.Holes.View = Backbone.View.extend({
 		var fail = function(e) {
 		//	 alert('Can\'t retrieve location.\nError: ' + e);
 		};
-		navigator.geolocation.getCurrentPosition(win, fail);
+		navigator.geolocation.getCurrentPosition(win, fail,{enableHighAccuracy:true});
    } 
 });
 
