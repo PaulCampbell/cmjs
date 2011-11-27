@@ -68,7 +68,7 @@
             
 			{{each(i,feature) features.models}}
 			<li>
-				<a href="#golfcourses/${golfCourseId}/map">
+				<a href="#golfcourses/${golfCourseId}/hole/${holeNumber}/map">
 					${feature.attributes.featureType}
 					<div class="info">
 					<div>Distance:</div>
@@ -90,8 +90,18 @@
 	<a href="#" id='back'>Back</a>
 	<h1>Caddy Magic</h1>
 </div>
+<div id="map" class="fill-screen">
+    <div class="floated-left bright">
+        Green: <span id="hole-distance"></span> m
+    </div>
+    <div class="floated-right">
+        <select>
+            <option value="1">Hole 1</option>
 
-<div id="map" class="fill-screen"> </div>
+        </select>
+    </div>
+<div id="map-canvas" class="head-gap"> </div>
+</div>
 <div id="wrapper" class="fill-screen">
 
 

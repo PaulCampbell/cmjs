@@ -194,6 +194,17 @@ overflow: auto;
 background: #C5CCD3 url(images/grasstexture.jpg)
 }
 
+.head-gap {
+top: 35px;
+position: absolute;
+z-index: 1;
+bottom: 0px;
+left: 0;
+width: 100%;
+overflow: auto;
+}
+
+
 #wrapper.noheader {
 top: 0px;
 }
@@ -346,3 +357,10 @@ bottom: 0px;
 left: 0;
 width: 100%;
 }
+
+.bright { color:white; font-weight: bold; }
+
+.floated-left { float:left;}
+.floated-right { float:right; }
+
+#map { padding: 6px 2px; font-size: 120%;}

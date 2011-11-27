@@ -3,7 +3,7 @@ App.Router.GolfCourses = Backbone.Router.extend({
         "golfcourses/:id":                  "view",
         "":                                 "index",
         "golfcourses/:id/hole/:holeNo":     "view_hole",
-        "golfcourses/:id/map":              "map"
+        "golfcourses/:id/hole/:holeNo/map":              "map"
     },
     
     view: function(id) {
@@ -52,8 +52,9 @@ App.Router.GolfCourses = Backbone.Router.extend({
     });
     },
 
-    map: function(id) {
+    map: function(id, holeNo) {
         var golfcourse = new GolfCourse({ Id: id });
+        golfcourse.CurrentHole = holeNo;
         golfcourse.fetch({
             success: function(model, resp) {
                  new App.Views.GolfCourses.Map({ model: golfcourse });
